@@ -24,7 +24,6 @@ export function ConnectWallet() {
           
         >
           {connector.name}
-          {!connector.ready && ' (unsupported)'}
         </button>
       ))}
     </div>

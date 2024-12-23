@@ -36,6 +36,7 @@ export const ConnectBtn = () => {
           if (isConnected) {
             disconnect();
           }
+          console.log("Connect your wallet button clicked");
           openConnectModal?.();
         }}
         disabled={isConnecting}
@@ -61,7 +62,10 @@ export const ConnectBtn = () => {
     <div className="max-w-5xl w-full flex flex-col sm:flex-row items-center justify-between gap-4">
       <Button
         responsive="default"
-        onClick={async () => openAccountModal?.()}
+        onClick={async () => {
+          console.log("Account button clicked");
+          openAccountModal?.();
+        }}
       >
         <div
           role="button"

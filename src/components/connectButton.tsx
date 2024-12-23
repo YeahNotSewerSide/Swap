@@ -36,9 +36,11 @@ export const ConnectBtn = () => {
           if (isConnected) {
             disconnect();
           }
+          console.log("Connect your wallet button clicked");
           openConnectModal?.();
         }}
         disabled={isConnecting}
+        responsive="default"
       >
         { isConnecting ? 'Connecting...' : 'Connect your wallet' }
       </Button>
@@ -47,17 +49,23 @@ export const ConnectBtn = () => {
 
   if (isConnected && !chain) {
     return (
-      <Button className="btn" onClick={openChainModal}>
+      <Button
+        responsive="default"
+        onClick={openChainModal}
+      >
         Wrong network
       </Button>
     );
   }
 
   return (
-    <div className="max-w-5xl w-full flex items-center justify-between">
+    <div className="max-w-5xl w-full flex flex-col sm:flex-row items-center justify-between gap-4">
       <Button
-      className="h-11"
-        onClick={async () => openAccountModal?.()}
+        responsive="default"
+        onClick={async () => {
+          console.log("Account button clicked");
+          openAccountModal?.();
+        }}
       >
         <div
           role="button"
@@ -72,11 +80,14 @@ export const ConnectBtn = () => {
         </div>
         <p>Account</p>
       </Button>
-      <div className="flex flex-row gap-4 items-center">
-      <Button className="h-11" onClick={openChainModal}>
-        Switch Networks
-      </Button>
-      <ThemeSwitcher />
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <Button
+          responsive="default"
+          onClick={openChainModal}
+        >
+          Switch Networks
+        </Button>
+        <ThemeSwitcher />
       </div>
     </div>
   );

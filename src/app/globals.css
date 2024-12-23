@@ -159,3 +159,15 @@
     }
   }
 }
+
+@layer components {
+  .modal {
+    width: 100%;
+    max-width: 500px;
+  }
+  @media (max-width: 640px) {
+    .modal {
+      width: 90%;
+    }
+  }
+}
